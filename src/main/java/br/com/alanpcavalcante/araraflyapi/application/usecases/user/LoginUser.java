@@ -7,7 +7,11 @@ import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.user.LoginDto;
 
 public class LoginUser {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public LoginUser(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public boolean login(LoginDto command) throws Exception {
         User user = userRepository.getUserByLogin(new Login(command.login()))
