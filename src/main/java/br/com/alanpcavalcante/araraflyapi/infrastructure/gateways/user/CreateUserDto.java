@@ -1,6 +1,6 @@
-package br.com.alanpcavalcante.araraflyapi.application.usecases.user;
+package br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.user;
 
-public record CreateUserCommand(
+public record CreateUserDto(
         String name,
         String cpf,
         String email,

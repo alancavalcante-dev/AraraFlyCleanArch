@@ -1,6 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.application.usecases.user;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.user.CreateUserDto;
 import org.junit.jupiter.api.Test;
 import br.com.alanpcavalcante.araraflyapi.domain.user.*;
 import br.com.alanpcavalcante.araraflyapi.domain.user.UserBuild;
@@ -28,7 +29,7 @@ class CreateUserTest {
     @Test
     void createUser_shouldCreateNewUserSuccessfully() throws Exception {
         // Arrange
-        CreateUserCommand command = new CreateUserCommand(
+        CreateUserDto command = new CreateUserDto(
                 "Alan Pereira",    // name
                 "504.680.460-38",        // cpf
                 "alan@email.com",        // email
@@ -70,7 +71,7 @@ class CreateUserTest {
     @Test
     void createUser_shouldThrowExceptionIfUserExists() {
         // Arrange
-        CreateUserCommand command = new CreateUserCommand(
+        CreateUserDto command = new CreateUserDto(
                 "Alan Pereira",     // name
                 "504.680.460-38",        // cpf
                 "alan@email.com",        // email

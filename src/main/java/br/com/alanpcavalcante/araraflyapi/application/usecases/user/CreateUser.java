@@ -2,6 +2,7 @@ package br.com.alanpcavalcante.araraflyapi.application.usecases.user;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
 import br.com.alanpcavalcante.araraflyapi.domain.user.*;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.user.CreateUserDto;
 
 import java.util.Optional;
 
@@ -15,7 +16,7 @@ public class CreateUser {
         this.userBuilder = userBuilder;
     }
 
-    public User create(CreateUserCommand command) throws Exception {
+    public User create(CreateUserDto command) throws Exception {
 
         User user = userBuilder
                 .createLogin(new Login(command.login()), new Password(command.password()))

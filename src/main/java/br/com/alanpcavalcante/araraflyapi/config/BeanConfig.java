@@ -8,13 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfig {
 
-    @Bean
-    public UserRepository userRepository() {
-        return new UserRepositoryImpl(); // implementação concreta
-    }
 
-    @Bean
-    public CreateUser createUser(UserRepository userRepository) {
-        return new CreateUser(userRepository);
-    }
+
+
 }
