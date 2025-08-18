@@ -3,7 +3,6 @@ package br.com.alanpcavalcante.araraflyapi.application.usecases.user;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
 import br.com.alanpcavalcante.araraflyapi.domain.user.Login;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.user.LoginDto;
 
 public class LoginUser {
 

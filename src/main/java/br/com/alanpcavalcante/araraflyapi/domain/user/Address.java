@@ -1,21 +1,21 @@
 package br.com.alanpcavalcante.araraflyapi.domain.user;
 
+import java.util.UUID;
+
 public class Address {
 
+    private UUID idAddress;
     private String street;
     private String city;
     private String state;
-    private String number;
+    private Integer number;
 
-    public Address(String street, String city, String state, String number) {
-        caracterMin(street);
-        caracterMin(city);
-        caracterMin(state);
-        caracterMin(number);
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.number = number;
+    public UUID getIdAddress() {
+        return idAddress;
+    }
+
+    public void setIdAddress(UUID idAddress) {
+        this.idAddress = idAddress;
     }
 
     public String getStreet() {
@@ -45,11 +45,11 @@ public class Address {
         this.state = state;
     }
 
-    public String getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 

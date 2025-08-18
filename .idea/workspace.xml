@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3badfce7-43d8-4263-a689-650f8daeaa9c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/profile/ProfileBuild.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/project/Price.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/AraraflyapiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/AraraflyapiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/LoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/LoginUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/config/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/config/BeanConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/project/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/project/StateBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/project/StateBusiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/project/TypePrice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/user/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/user/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/user/UserBuild.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/gateways/user/CreateUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/gateways/user/LoginDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/LoginDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/gateways/user/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/persistence/user/AddressEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/persistence/user/JpaUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/persistence/user/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/persistence/user/UserRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUserTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alancavalcante-dev&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/alancavalcante-dev/AraraFlyCleanArch.git&quot;,
+    &quot;accountId&quot;: &quot;c36a02d3-a9bf-4717-ae6e-1e8fb07b5465&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="30Bpeoj4KwifaWwjY4ELlqyvXNw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AraraflyapiApplication.executor": "Run",
+    "JUnit.CreateUserTest.createUser_shouldCreateNewUserSuccessfully.executor": "Run",
+    "JUnit.CreateUserTest.createUser_shouldThrowExceptionIfUserExists.executor": "Run",
+    "JUnit.CreateUserTest.executor": "Run",
+    "JUnit.NotificationEmailTest.executor": "Run",
+    "JUnit.NotificationEmailTest.sendEmailCase.executor": "Run",
+    "JUnit.PriceFactoryTest.criarPreco.executor": "Run",
+    "Maven.araraflyapi [clean,install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/admin.alan/Desktop/Code-Freela",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin.alan\Desktop\AraraFlyCleanArch\src\main\java\br\com\alanpcavalcante\araraflyapi\domain\user" />
+      <recent name="C:\Users\admin.alan\Desktop\AraraFlyCleanArch" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="br.com.alanpcavalcante.araraflyapi.application.usecases.user" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.com.alanpcavalcante.araraflyapi.infrastructure.notification" />
+      <recent name="br.com.alanpcavalcante.araraflyapi.domain.project" />
+      <recent name="br.com.alanpcavalcante.araraflyapi.application.usecases.user" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AraraflyapiApplication">
+    <configuration name="AraraflyapiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/.env" />
+      </option>
+      <option name="MAIN_CLASS_NAME" value="br.com.alanpcavalcante.araraflyapi.AraraflyapiApplication" />
+      <module name="araraflyapi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.alanpcavalcante.araraflyapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateProjectCustomerTest.criarPreco" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="araraflyapi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.alanpcavalcante.araraflyapi.domain.project.CreateProjectCustomer" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.alanpcavalcante.araraflyapi.domain.project" />
+      <option name="MAIN_CLASS_NAME" value="br.com.alanpcavalcante.araraflyapi.domain.project.CreateProjectCustomerTest" />
+      <option name="METHOD_NAME" value="criarPreco" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="araraflyapi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.alanpcavalcante.araraflyapi.application.usecases.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.alanpcavalcante.araraflyapi.application.usecases.user" />
+      <option name="MAIN_CLASS_NAME" value="br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="araraflyapi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.alanpcavalcante.araraflyapi.infrastructure.notification.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.alanpcavalcante.araraflyapi.infrastructure.notification" />
+      <option name="MAIN_CLASS_NAME" value="br.com.alanpcavalcante.araraflyapi.infrastructure.notification.NotificationEmailTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationEmailTest.sendEmailCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="araraflyapi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.alanpcavalcante.araraflyapi.infrastructure.notification.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.alanpcavalcante.araraflyapi.infrastructure.notification" />
+      <option name="MAIN_CLASS_NAME" value="br.com.alanpcavalcante.araraflyapi.infrastructure.notification.NotificationEmailTest" />
+      <option name="METHOD_NAME" value="sendEmailCase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AraraflyapiApplication" />
+        <item itemvalue="JUnit.NotificationEmailTest.sendEmailCase" />
+        <item itemvalue="JUnit.NotificationEmailTest" />
+        <item itemvalue="JUnit.CreateProjectCustomerTest.criarPreco" />
+        <item itemvalue="JUnit.CreateUserTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3badfce7-43d8-4263-a689-650f8daeaa9c" name="Changes" comment="" />
+      <created>1753110918255</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753110918255</updated>
+    </task>
+    <servers />
+  </component>
+</project>

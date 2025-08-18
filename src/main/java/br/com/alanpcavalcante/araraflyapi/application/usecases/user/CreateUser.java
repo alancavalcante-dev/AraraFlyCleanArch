@@ -1,42 +1,34 @@
 package br.com.alanpcavalcante.araraflyapi.application.usecases.user;
 
+import br.com.alanpcavalcante.araraflyapi.application.gateways.profile.ProfileRepository;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
+import br.com.alanpcavalcante.araraflyapi.domain.profile.Profile;
+import br.com.alanpcavalcante.araraflyapi.domain.profile.ProfileBuild;
 import br.com.alanpcavalcante.araraflyapi.domain.user.*;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.user.CreateUserDto;
 
 import java.util.Optional;
 
 public class CreateUser {
 
     private final UserRepository userRepository;
-    private final UserBuild userBuilder;
+    private final ProfileRepository profileRepository;
 
-    public CreateUser(UserRepository userRepository, UserBuild userBuilder) {
+    public CreateUser(UserRepository userRepository, ProfileRepository profileRepository) {
         this.userRepository = userRepository;
-        this.userBuilder = userBuilder;
+        this.profileRepository = profileRepository;
     }
 
-    public User create(CreateUserDto command) throws Exception {
+    public User create(User user, Profile profile) throws Exception {
 
-        User user = userBuilder
-                .createLogin(new Login(command.login()), new Password(command.password()))
-                .createProfile(
-                        new Name(command.name()),
-                        new Cpf(command.cpf()),
-                        new Email(command.email()),
-                        new Phone(command.phone())
-                )
-                .implementAddress(
-                        command.street(),
-                        command.city(),
-                        command.state(),
-                        command.number()
-                ).build();
+        Optional<User> userDomainOpt = userRepository.getUserByLoginOrCpfOrEmail(
+                user.getLogin(), user.getProfile().getCpf(), user.getProfile().getEmail());
 
-
-        Optional<User> userDomainOpt = userRepository.getUserByLoginOrCpfOrEmail(user.getLogin(), user.getCpf(), user.getEmail());
         if (userDomainOpt.isPresent()) throw new Exception("Login, Cpf ou Email já cadastrado");
 
+        Optional<Profile> profileDomainObj = profileRepository.getProfileByEmailOrCpf(profile.getEmail(), profile.getCpf());
+        if (profileDomainObj.isPresent()) throw new Exception("Email ou Cpf já cadastrados");
+
+        user.setProfile(profile);
         return userRepository.save(user);
     }
 

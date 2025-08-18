@@ -11,22 +11,23 @@ public class Project {
 
     private UUID idProject;
 
-    private String title;
+    private Title title;
 
-    private String description;
+    private Description description;
 
-    private BigDecimal price;
+    private Price price;
 
     private TypePrice typePrice;
 
     private LocalDate closingDate;
 
-
     private LocalDateTime dateCreated;
 
     private StateBusiness stateBusiness;
 
-    private User user;
+    private User customer;
+
+    private User developer;
 
 
     public UUID getIdProject() {
@@ -38,11 +39,14 @@ public class Project {
     }
 
     public User getUser() {
-        return user;
+        return customer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(User customer) {
+        if (customer.getIsDeveloper()) {
+            throw new IllegalArgumentException("Apenas clientes podem ter projeto!");
+        }
+        this.customer = customer;
     }
 
     public StateBusiness getStateBusiness() {
@@ -52,6 +56,7 @@ public class Project {
     public void setStateBusiness(StateBusiness stateBusiness) {
         this.stateBusiness = stateBusiness;
     }
+
 
     public LocalDateTime getDateCreated() {
         return dateCreated;
@@ -79,47 +84,57 @@ public class Project {
         return typePrice;
     }
 
-    public void setTypePrice(TypePrice typePrice) {
-        this.typePrice = typePrice;
+    public void setTypePrice(Price price) {
+        this.typePrice = price.getTypePrice();
     }
 
     public BigDecimal getPrice() {
-        return price;
+        return price.getPrice();
     }
 
-    public void setPrice(BigDecimal price) {
-        if (price.compareTo(new BigDecimal("10.00")) < 0) {
-            throw new IllegalArgumentException("Invalid field, minimum value of R$ 10.00");
+    public void setPrice(Price price) {
+
+        if (price.getPrice().compareTo(new BigDecimal("25.00")) < 0) {
+            throw new IllegalArgumentException("Invalid field, minimum value of R$ 25.00");
         }
-        this.price = price;
+
+        if (!this.getStateBusiness().equals(StateBusiness.OPEN)) {
+            throw new IllegalArgumentException("Cannot change the value while the project is in production");
+        }
+
+        this.price.setPrice(price.getPrice());
     }
 
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        lengthMinChars(description);
-        this.description = description;
-    }
-
-    public String getTitle() {
+    public Title getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        lengthMinChars(title);
+    public void setTitle(Title title) {
         this.title = title;
     }
 
-    private void lengthMinChars(String field) {
-        if (field.length() < 3) {
-            throw new IllegalArgumentException("Invalid field, must have at least 3 characters");
-        }
+    public Description getDescription() {
+        return description;
+    }
 
-        if (field.length() > 100) {
-            throw new IllegalArgumentException("Invalid field, cannot exceed 100 characters");
-        }
+    public void setDescription(Description description) {
+        this.description = description;
+    }
+
+    public User getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(User developer) {
+        this.developer = developer;
+    }
+
+    public User getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(User customer) {
+        this.customer = customer;
     }
 }
