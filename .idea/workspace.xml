@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3badfce7-43d8-4263-a689-650f8daeaa9c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/security/CreateUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/LoginDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/LoginUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/config/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/config/BeanConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/docker/DeploymentImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/docker/DeploymentImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/docker/DeploymentImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/docker/DeploymentImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
