@@ -18,13 +18,14 @@ public class CreateUser {
         this.profileRepository = profileRepository;
     }
 
-    public User create(User user, Profile profile) throws Exception {
+    public User create(User user) throws Exception {
 
         Optional<User> userDomainOpt = userRepository.getUserByLoginOrCpfOrEmail(
                 user.getLogin(), user.getProfile().getCpf(), user.getProfile().getEmail());
 
         if (userDomainOpt.isPresent()) throw new Exception("Login, Cpf ou Email já cadastrado");
 
+        Profile profile = user.getProfile();
         Optional<Profile> profileDomainObj = profileRepository.getProfileByEmailOrCpf(profile.getEmail(), profile.getCpf());
         if (profileDomainObj.isPresent()) throw new Exception("Email ou Cpf já cadastrados");
 

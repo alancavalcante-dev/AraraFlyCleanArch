@@ -1,4 +1,4 @@
-package br.com.alanpcavalcante.araraflyapi.config;
+package br.com.alanpcavalcante.araraflyapi.infrastructure.config;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.deploy.DeployRepository;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.deploy.FileDeployment;
