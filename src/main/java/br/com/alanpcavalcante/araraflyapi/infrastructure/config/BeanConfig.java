@@ -12,7 +12,6 @@ import br.com.alanpcavalcante.araraflyapi.application.usecases.project.GetProjec
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.ListProjectCustomer;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.UpdateProjectToContainerProduction;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUser;
-import br.com.alanpcavalcante.araraflyapi.application.usecases.user.LoginUser;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.MatchValidateFacade;
 import br.com.alanpcavalcante.araraflyapi.domain.deploy.Deploy;
 import br.com.alanpcavalcante.araraflyapi.domain.match.ValidateCustomerProjectConfirm;
