@@ -5,6 +5,7 @@ import br.com.alanpcavalcante.araraflyapi.application.gateways.deploy.FileDeploy
 import br.com.alanpcavalcante.araraflyapi.application.gateways.notification.Notification;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.profile.ProfileRepository;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.project.ProjectRepository;
+import br.com.alanpcavalcante.araraflyapi.application.gateways.security.EncryptPassword;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.deploy.CreateDeploy;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.CreateProjectCustomer;
@@ -13,6 +14,7 @@ import br.com.alanpcavalcante.araraflyapi.application.usecases.project.ListProje
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.UpdateProjectToContainerProduction;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUser;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.MatchValidateFacade;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.user.GetUser;
 import br.com.alanpcavalcante.araraflyapi.domain.deploy.Deploy;
 import br.com.alanpcavalcante.araraflyapi.domain.match.ValidateCustomerProjectConfirm;
 import br.com.alanpcavalcante.araraflyapi.domain.match.ValidateCustomerVotedOnOwnMatch;
@@ -26,16 +28,40 @@ import br.com.alanpcavalcante.araraflyapi.domain.user.Address;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.deploy.DeployRepositoryImpl;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.ProjectRepositoryImpl;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.UserRepositoryImpl;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.security.EncryptPasswordImpl;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.user.UserRepositoryImpl;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.docker.DeploymentImpl;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.docker.DockerConnect;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.mappers.AddressMapper;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.mappers.UserMapper;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.profile.ProfileRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class BeanConfig {
+
+    @Bean
+    public EncryptPassword encryptPassword() {
+        return new EncryptPasswordImpl(new BCryptPasswordEncoder());
+    }
+
+    @Bean
+    public UserEntity userEntity() {
+        return new UserEntity();
+    }
+
+    @Bean
+    public UserMapper userMapper() {
+        return new UserMapper();
+    }
+
+    @Bean
+    public GetUser getUser(UserRepository userRepository) {
+        return new GetUser(userRepository);
+    }
 
     @Bean
     public AddressMapper addressMapper(Address address) {
@@ -157,13 +183,8 @@ public class BeanConfig {
     }
 
     @Bean
-    public CreateUser createUser(UserRepository userRepository, ProfileRepository profileRepository) {
-        return new CreateUser(userRepository, profileRepository);
-    }
-
-    @Bean
-    public LoginUser loginUser(UserRepository userRepository) {
-        return new LoginUser(userRepository);
+    public CreateUser createUser(UserRepository userRepository, ProfileRepository profileRepository, EncryptPassword encryptPassword) {
+        return new CreateUser(userRepository, profileRepository, encryptPassword);
     }
 
 

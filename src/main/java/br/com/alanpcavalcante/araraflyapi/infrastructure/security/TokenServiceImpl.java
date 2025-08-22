@@ -1,5 +1,6 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.security;
 
+import br.com.alanpcavalcante.araraflyapi.application.gateways.security.TokenService;
 import br.com.alanpcavalcante.araraflyapi.domain.user.UserRole;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
 import com.auth0.jwt.JWT;
@@ -14,16 +15,17 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 @Service
-public class TokenService {
+public class TokenServiceImpl implements TokenService {
+
 
     @Value("${jwt.secret}")
     private String secret;
 
-    // Modifique o método para receber o objeto User completo
+
+    @Override
     public String generateToken(UserEntity user){
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);
-
             UserRole roleString = user.getRole();
 
             return JWT.create()
@@ -35,11 +37,13 @@ public class TokenService {
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
 
+
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Error while generating token", exception);
         }
     }
 
+    @Override
     public String validateToken(String token){
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
@@ -53,12 +57,8 @@ public class TokenService {
         }
     }
 
-    private Instant genExpirationDate() {
-        return LocalDateTime.now().plusHours(3).toInstant(ZoneOffset.of("-03:00"));
-    }
 
-
-
+    @Override
     public String getRoleFromToken(String token) {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         return JWT.require(algorithm)
@@ -66,5 +66,9 @@ public class TokenService {
                 .build()
                 .verify(token)
                 .getClaim("role").asString();
+    }
+
+    private Instant genExpirationDate() {
+        return LocalDateTime.now().plusHours(3).toInstant(ZoneOffset.of("-03:00"));
     }
 }

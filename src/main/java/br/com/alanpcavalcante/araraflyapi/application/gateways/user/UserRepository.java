@@ -11,7 +11,5 @@ public interface UserRepository
 {
     Optional<User> getUserByLogin(Login login);
 
-    Optional<User> getUserByLoginOrCpfOrEmail(Login login, Cpf cpf, Email email);
-
     User save(User user);
 }

@@ -12,8 +12,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-@Entity(name = "tbl_users")
-@Table(name = "tbl_users")
+@Entity
+@Table(name = "tbl_user")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,18 +27,13 @@ public class UserEntity implements UserDetails {
     private String login;
     private String password;
     private Boolean isDeveloper;
+
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_profile")
-    @ToString.Exclude
     private ProfileEntity profile;
-
-    public UserEntity(String login, String password, UserRole role){
-        this.login = login;
-        this.password = password;
-        this.role = role;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

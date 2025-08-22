@@ -4,6 +4,7 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 import br.com.alanpcavalcante.araraflyapi.domain.user.Login;
 import br.com.alanpcavalcante.araraflyapi.domain.user.Password;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.model.ProfileEntity;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +22,12 @@ public class UserMapper {
     }
 
     public UserEntity domainToEntity(User domain) {
-        UserEntity user = new UserEntity();
-        user.setId(domain.getId());
-        user.setLogin(domain.getLogin().getLogin());
-        user.setPassword(domain.getPassword().getPassword());
-        user.setRole(domain.getRole());
-        user.setIsDeveloper(domain.getIsDeveloper());
-        return user;
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(domain.getId());
+        userEntity.setLogin(domain.getLogin().getLogin());
+        userEntity.setPassword(domain.getPassword().getPassword());
+        userEntity.setRole(domain.getRole());
+        userEntity.setIsDeveloper(domain.getIsDeveloper());
+        return userEntity;
     }
 }

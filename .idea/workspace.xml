@@ -5,7 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3badfce7-43d8-4263-a689-650f8daeaa9c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/user/UserRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/gateways/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/gateways/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/user/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/domain/user/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/config/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/config/BeanConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/controllers/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/gateways/UserRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/ProfileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/ProfileMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/DeployEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/DeployEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/ProfileEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/ProfileEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/model/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/security/AuthorizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/security/AuthorizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/security/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/security/SecurityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/security/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/alanpcavalcante/araraflyapi/infrastructure/security/TokenServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/application/gateways/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/application/gateways/user/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/application/usecases/user/CreateUserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/application/usecases/user/LoginDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/application/usecases/user/LoginUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/config/BeanConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/domain/user/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/domain/user/UserRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/gateways/UserRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/ProfileMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/ProfileMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/mappers/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/model/ProfileEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/model/ProfileEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/model/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/alanpcavalcante/araraflyapi/infrastructure/model/UserEntity.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +45,8 @@
       <list>
         <option value="Record" />
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>

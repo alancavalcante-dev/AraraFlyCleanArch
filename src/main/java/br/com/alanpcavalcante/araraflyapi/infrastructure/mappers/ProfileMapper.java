@@ -39,16 +39,21 @@ public class ProfileMapper {
         return profile;
     }
 
-    public ProfileEntity domainToEntity(User user, Profile domain) {
+    public ProfileEntity domainToEntity(Profile profile) {
         ProfileEntity profileEntity = new ProfileEntity();
 
-        profileEntity.setName(domain.getName().getName());
-        profileEntity.setEmail(domain.getEmail().getEmail());
-        profileEntity.setPhone(domain.getPhone().getPhone());
-        profileEntity.setCpf(domain.getCpf().getCpf());
-        profileEntity.setPictureUrl(domain.getPicture().toString());
-        profileEntity.setAddress(addressMapper.domainToEntity(domain.getAddress()));
-        profileEntity.setUser(userMapper.domainToEntity(user));
+        profileEntity.setName(profile.getName().getName());
+        profileEntity.setEmail(profile.getEmail().getEmail());
+        profileEntity.setPhone(profile.getPhone().getPhone());
+        profileEntity.setCpf(profile.getCpf().getCpf());
+
+        if (profile.getPicture() != null) {
+            profileEntity.setPictureUrl(profile.getPicture().toString());
+        } else {
+            profileEntity.setPictureUrl(null);
+        }
+
+        profileEntity.setAddress(addressMapper.domainToEntity(profile.getAddress()));
         return profileEntity;
     }
 }

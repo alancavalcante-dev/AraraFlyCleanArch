@@ -1,7 +1,5 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.security;
 
-import br.com.alanpcavalcante.araraflyapi.application.usecases.user.GetUser;
-import br.com.alanpcavalcante.araraflyapi.domain.user.Login;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,16 +18,16 @@ import java.util.List;
 public class SecurityFilter extends OncePerRequestFilter {
 
     @Autowired
-    TokenService tokenService;
+    TokenServiceImpl tokenServiceImpl;
 
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token = this.recoverToken(request);
         if (token != null) {
-            var login = tokenService.validateToken(token);
+            var login = tokenServiceImpl.validateToken(token);
             if (!login.isEmpty()) {
-                var role = tokenService.getRoleFromToken(token);
+                var role = tokenServiceImpl.getRoleFromToken(token);
                 var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role));
 
                 var authentication = new UsernamePasswordAuthenticationToken(login, null, authorities);

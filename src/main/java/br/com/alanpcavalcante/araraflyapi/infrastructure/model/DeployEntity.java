@@ -14,7 +14,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @ToString
-@Table(name="tbl_deploy")
+@Table(name="tbl_deploys")
 public class DeployEntity {
 
     @Id

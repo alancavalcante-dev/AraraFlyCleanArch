@@ -2,13 +2,11 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.controllers;
 
 
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUser;
+import br.com.alanpcavalcante.araraflyapi.domain.user.Password;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.mappers.AuthMapper;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.security.AuthenticationDTO;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.security.CreateUserDto;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.security.LoginResponseDTO;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.security.TokenService;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.security.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -29,14 +27,14 @@ public class AuthenticationController {
     private final AuthenticationManager authenticationManager;
     private final CreateUser createUser;
     private final AuthMapper authMapper;
-    private final TokenService tokenService;
+    private final TokenServiceImpl tokenServiceImpl;
 
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody @Valid AuthenticationDTO data){
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
-        var token = tokenService.generateToken((UserEntity) auth.getPrincipal());
+        var token = tokenServiceImpl.generateToken((UserEntity) auth.getPrincipal());
         return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
