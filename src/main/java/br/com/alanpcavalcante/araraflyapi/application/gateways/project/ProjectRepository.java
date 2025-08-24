@@ -10,12 +10,13 @@ import java.util.UUID;
 
 public interface ProjectRepository {
 
-    Optional<Project> getProjectById(User user, UUID idProject);
-
-    List<Project> getProjectsOpenByUserAndStateBusiness(User user, StateBusiness stateBusiness);
-
+    Project save(Project project);
+    void delete(Project project);
     List<Project> listProjectsOpenBySearch(StateBusiness stateBusiness, String search);
 
-    Project save(Project project);
+    Optional<Project> getProjectByIdProjectAndCustomer(UUID id, User customer);
+    List<Project> getProjectsByCustomerAndStateBusiness(User customer, StateBusiness stateBusiness);
+
+    Optional<Project> getProjectByIdProjectAndDeveloper(UUID id, User developer);
 
 }

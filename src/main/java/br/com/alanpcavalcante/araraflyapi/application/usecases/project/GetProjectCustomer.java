@@ -16,7 +16,7 @@ public class GetProjectCustomer {
     }
 
     public Project get(User user, UUID idProject) throws Exception {
-        Optional<Project> project = projectRepository.getProjectById(user, idProject);
+        Optional<Project> project = projectRepository.getProjectByIdProjectAndCustomer(idProject, user);
         if (project.isEmpty()) {
             throw new IllegalArgumentException("projeto nao encontrado");
         }

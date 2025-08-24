@@ -1,5 +1,6 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 
+import br.com.alanpcavalcante.araraflyapi.application.usecases.project.ProjectDto;
 import br.com.alanpcavalcante.araraflyapi.domain.project.*;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.model.ProjectEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,14 @@ public class ProjectMapper {
 
         return entity;
     }
+
+    public ProjectDto domainToResponse(Project project) {
+        return new ProjectDto(
+            project.getTitle().getTitle(), project.getDescription().getDescription(), project.getPrice(),
+            project.getTypePrice(), project.getClosingDate(), project.getDateCreated(), project.getStateBusiness()
+        );
+    }
+
 }
 
 

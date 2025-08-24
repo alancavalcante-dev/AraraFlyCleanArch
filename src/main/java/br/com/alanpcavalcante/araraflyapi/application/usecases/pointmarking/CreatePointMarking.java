@@ -25,7 +25,7 @@ public class CreatePointMarking {
     }
 
     public PointMarking create(User developer, Project project, PointMarkingRequest dto) {
-        Optional<Project> projectOpt = projectRepository.getProjectById(developer, project.getIdProject());
+        Optional<Project> projectOpt = projectRepository.getProjectByIdProjectAndDeveloper(project.getIdProject(), developer);
         if (projectOpt.isEmpty()) {
             throw new IllegalArgumentException("Desenvolvedor não está associado ao projeto ou projeto inexistente");
         }

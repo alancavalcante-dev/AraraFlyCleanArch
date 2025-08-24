@@ -28,7 +28,7 @@ public class CreateProjectCustomer {
         project.setStateBusiness(StateBusiness.OPEN);
         project.setUser(user);
 
-        List<Project> projects = projectRepository.getProjectsOpenByUserAndStateBusiness(user, StateBusiness.OPEN);
+        List<Project> projects = projectRepository.getProjectsByCustomerAndStateBusiness(user, StateBusiness.OPEN);
         if (projects.size() == 3) {
             throw new Exception("Não pode ter mais de 3 projetos");
         }

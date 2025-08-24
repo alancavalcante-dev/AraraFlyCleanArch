@@ -4,7 +4,6 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 import br.com.alanpcavalcante.araraflyapi.domain.user.Login;
 import br.com.alanpcavalcante.araraflyapi.domain.user.Password;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.ProfileEntity;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
 import org.springframework.stereotype.Component;
 

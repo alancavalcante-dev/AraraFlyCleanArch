@@ -35,8 +35,9 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/portfolio/projects").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/portfolio/developer").permitAll()
+                        .requestMatchers("/api/customer/project/**").hasRole("CUSTOMER")
+//                        .requestMatchers(HttpMethod.GET, "/api/portfolio/projects").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/api/portfolio/developer").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

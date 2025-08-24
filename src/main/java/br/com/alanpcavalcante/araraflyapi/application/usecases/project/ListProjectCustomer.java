@@ -15,12 +15,9 @@ public class ListProjectCustomer {
         this.projectRepository = projectRepository;
     }
 
-    public List<Project> listOpen(User user) {
-        return projectRepository.getProjectsOpenByUserAndStateBusiness(user, StateBusiness.OPEN);
-    }
 
-    public List<Project> listFinished(User user) {
-        return projectRepository.getProjectsOpenByUserAndStateBusiness(user, StateBusiness.FINISHED);
+    public List<Project> listStateBusiness(User user, StateBusiness state) {
+        return projectRepository.getProjectsByCustomerAndStateBusiness(user, state);
     }
 
 }

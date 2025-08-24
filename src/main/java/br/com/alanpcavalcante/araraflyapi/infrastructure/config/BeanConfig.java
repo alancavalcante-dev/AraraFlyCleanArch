@@ -8,10 +8,7 @@ import br.com.alanpcavalcante.araraflyapi.application.gateways.project.ProjectRe
 import br.com.alanpcavalcante.araraflyapi.application.gateways.security.EncryptPassword;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.deploy.CreateDeploy;
-import br.com.alanpcavalcante.araraflyapi.application.usecases.project.CreateProjectCustomer;
-import br.com.alanpcavalcante.araraflyapi.application.usecases.project.GetProjectCustomer;
-import br.com.alanpcavalcante.araraflyapi.application.usecases.project.ListProjectCustomer;
-import br.com.alanpcavalcante.araraflyapi.application.usecases.project.UpdateProjectToContainerProduction;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.project.*;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUser;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.MatchValidateFacade;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.GetUser;
@@ -27,7 +24,7 @@ import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
 import br.com.alanpcavalcante.araraflyapi.domain.user.Address;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.deploy.DeployRepositoryImpl;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.gateways.ProjectRepositoryImpl;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.project.ProjectRepositoryImpl;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.security.EncryptPasswordImpl;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.user.UserRepositoryImpl;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.docker.DeploymentImpl;
@@ -42,6 +39,53 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class BeanConfig {
+
+    // Projects
+
+    @Bean
+    public Project project() {
+        return new Project();
+    }
+
+    @Bean
+    public ProjectRepository projectRepository() {
+        return new ProjectRepositoryImpl();
+    }
+
+    @Bean
+    public GetProjectCustomer getProjectCustomer(ProjectRepository projectRepository) {
+        return new GetProjectCustomer(projectRepository);
+    }
+
+    @Bean
+    public CreateProjectCustomer createProjectCustomer(ProjectRepository repository, Project project) {
+        return new CreateProjectCustomer(repository, project);
+    }
+
+    @Bean
+    public UpdateProjectCustomer updateProjectCustomer(ProjectRepository projectRepository, PriceFactory priceFactory) {
+        return new UpdateProjectCustomer(projectRepository, priceFactory);
+    }
+
+    @Bean
+    public ListProjectCustomer listProjectCustomer(ProjectRepository projectRepository) {
+        return new ListProjectCustomer(projectRepository);
+    }
+
+    @Bean
+    public DeleteProjectCustomer deleteProjectCustomer(ProjectRepository projectRepository) {
+        return new DeleteProjectCustomer(projectRepository);
+    }
+
+    @Bean
+    public UpdateProjectToContainerProduction updateProjectToContainerProduction(
+            ProjectRepository projectRepository, Notification notification, CreateDeploy createDeploy) {
+        return new UpdateProjectToContainerProduction(projectRepository, notification, createDeploy);
+    }
+
+    // End Beans Project
+
+
 
     @Bean
     public EncryptPassword encryptPassword() {
@@ -105,12 +149,6 @@ public class BeanConfig {
 
 
     @Bean
-    public UpdateProjectToContainerProduction updateProjectToContainerProduction(
-            ProjectRepository projectRepository, Notification notification, CreateDeploy createDeploy) {
-        return new UpdateProjectToContainerProduction(projectRepository, notification, createDeploy);
-    }
-
-    @Bean
     public ValidateDeveloperProjectMatch validateDeveloperQuantityProjectsIsConfirm() {
         return new ValidateDeveloperProjectMatch();
     }
@@ -143,28 +181,6 @@ public class BeanConfig {
                 validateDeveloperProjectMatch, validateDeveloperProjectConfirm);
     }
 
-    // Projects
-
-    @Bean
-    public ListProjectCustomer listProjectCustomer(ProjectRepository projectRepository) {
-        return new ListProjectCustomer(projectRepository);
-    }
-
-    @Bean
-    public GetProjectCustomer getProjectCustomer(ProjectRepository projectRepository) {
-        return new GetProjectCustomer(projectRepository);
-    }
-
-
-    @Bean
-    public Project project() {
-        return new Project();
-    }
-
-    @Bean
-    public CreateProjectCustomer createProjectCustomer(ProjectRepository repository, Project project) {
-        return new CreateProjectCustomer(repository, project);
-    }
 
     // Users
     @Bean
@@ -185,12 +201,6 @@ public class BeanConfig {
     @Bean
     public CreateUser createUser(UserRepository userRepository, ProfileRepository profileRepository, EncryptPassword encryptPassword) {
         return new CreateUser(userRepository, profileRepository, encryptPassword);
-    }
-
-
-    @Bean
-    public ProjectRepository projectRepository() {
-        return new ProjectRepositoryImpl();
     }
 
     @Bean
