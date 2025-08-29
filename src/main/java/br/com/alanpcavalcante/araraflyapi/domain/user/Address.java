@@ -53,8 +53,8 @@ public class Address {
         this.number = number;
     }
 
-    private void caracterMin(String texto) {
-        if (texto.length() <= 2) {
+    private void caracterMin(String text) {
+        if (text != null && text.length() <= 2) {
             throw new IllegalArgumentException("Tem que ser maior de 2 caracteres");
         }
     }

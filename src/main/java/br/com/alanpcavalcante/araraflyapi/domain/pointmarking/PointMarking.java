@@ -96,7 +96,7 @@ public class PointMarking {
     }
 
     public User getCustomer() {
-        return this.project.getUser();
+        return this.project.getCustomer();
     }
 
 }

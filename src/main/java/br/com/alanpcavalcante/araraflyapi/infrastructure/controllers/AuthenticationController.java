@@ -2,10 +2,9 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.controllers;
 
 
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUser;
-import br.com.alanpcavalcante.araraflyapi.domain.user.Password;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.mappers.AuthMapper;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.UserEntity;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.security.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.transaction.Transactional;

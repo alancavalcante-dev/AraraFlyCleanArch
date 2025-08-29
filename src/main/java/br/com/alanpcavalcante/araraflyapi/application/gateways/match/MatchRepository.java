@@ -6,11 +6,15 @@ import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+
 
 public interface MatchRepository {
 
-    Optional<Match> findMatchById(Long idMatch);
-    List<Match> findAllMatchByUserAndStateBusiness(User user, StateBusiness stateBusiness);
+    Optional<Match> findMatchById(UUID idMatch);
+    List<Match> findAllMatchByDeveloperAndStateBusiness(User developer, StateBusiness stateBusiness);
+    List<Match> findAllMatchByCustomerAndStateBusiness(User customer, StateBusiness stateBusiness);
     Match save(Match match);
+    void delete(Match match);
 
 }

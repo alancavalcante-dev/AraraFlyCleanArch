@@ -1,5 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.domain.project;
 
+import br.com.alanpcavalcante.araraflyapi.domain.exceptions.PriceValueMinInvalid;
+
 import java.math.BigDecimal;
 
 public class PriceImpl implements Price {
@@ -37,7 +39,7 @@ public class PriceImpl implements Price {
     @Override
     public void validate(BigDecimal price) {
         if (price == null || price.compareTo(BigDecimal.valueOf(25.00)) < 0) {
-            throw new IllegalArgumentException("Price must be greater than 25.00");
+            throw new PriceValueMinInvalid("Price must be greater than 25.00");
         }
     }
 

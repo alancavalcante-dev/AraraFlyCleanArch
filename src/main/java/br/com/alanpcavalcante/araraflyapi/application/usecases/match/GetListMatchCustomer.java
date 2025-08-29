@@ -1,0 +1,21 @@
+package br.com.alanpcavalcante.araraflyapi.application.usecases.match;
+
+import br.com.alanpcavalcante.araraflyapi.application.gateways.match.MatchRepository;
+import br.com.alanpcavalcante.araraflyapi.domain.match.Match;
+import br.com.alanpcavalcante.araraflyapi.domain.project.StateBusiness;
+import br.com.alanpcavalcante.araraflyapi.domain.user.User;
+
+import java.util.List;
+
+public class GetListMatchCustomer {
+
+    private final MatchRepository matchRepository;
+
+    public GetListMatchCustomer(MatchRepository matchRepository) {
+        this.matchRepository = matchRepository;
+    }
+
+    public List<Match> get(User customer) {
+        return matchRepository.findAllMatchByCustomerAndStateBusiness(customer, StateBusiness.OPEN);
+    }
+}

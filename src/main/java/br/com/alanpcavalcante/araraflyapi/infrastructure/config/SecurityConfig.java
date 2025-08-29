@@ -35,7 +35,10 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
-                        .requestMatchers("/api/customer/project/**").hasRole("CUSTOMER")
+                        .requestMatchers("/api/customer/**").hasRole("CUSTOMER")
+                        .requestMatchers("/api/developer/**").hasRole("DEVELOPER")
+                        .requestMatchers("/api/catalog/projects/**").permitAll()
+                        .requestMatchers("/api/catalog/developers/**").permitAll() //.hasAnyRole("CUSTOMER","DEVELOPER")
 //                        .requestMatchers(HttpMethod.GET, "/api/portfolio/projects").permitAll()
 //                        .requestMatchers(HttpMethod.GET, "/api/portfolio/developer").permitAll()
                         .anyRequest().authenticated()
@@ -43,6 +46,7 @@ public class SecurityConfig {
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){

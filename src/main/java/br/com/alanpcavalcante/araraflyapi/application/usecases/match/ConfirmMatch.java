@@ -5,6 +5,8 @@ import br.com.alanpcavalcante.araraflyapi.application.usecases.project.UpdatePro
 import br.com.alanpcavalcante.araraflyapi.domain.match.Match;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
+import java.util.UUID;
+
 
 public class ConfirmMatch {
 
@@ -19,9 +21,11 @@ public class ConfirmMatch {
         this.updateProjectToContainerProduction = update;
     }
 
-    public Match confirmMatch(User user, Long idMatch) {
-        Match match = matchRepository.findMatchById(idMatch).orElseThrow();
+    public Match confirmMatch(User user, UUID idMatch) {
+        Match match = matchRepository.findMatchById(idMatch).orElseThrow(() -> new RuntimeException("Match não encontrado"));
+
         Match matchUpdate = matchValidateFacade.confirm(match, user.getIsDeveloper());
+
         if (matchUpdate.getConfirmCustomer().getConfirm() && matchUpdate.getConfirmDeveloper().getConfirm()) {
             updateProjectToContainerProduction.updateProject(match.getProject(), matchUpdate.getDeveloper());
         }

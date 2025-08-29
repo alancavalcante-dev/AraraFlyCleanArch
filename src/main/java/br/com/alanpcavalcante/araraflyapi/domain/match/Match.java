@@ -4,8 +4,8 @@ import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
+
 
 public class Match {
 

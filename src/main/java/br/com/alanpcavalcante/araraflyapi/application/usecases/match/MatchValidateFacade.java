@@ -28,9 +28,10 @@ public class MatchValidateFacade {
         this.validateDeveloperProjectConfirm = validateDeveloperProjectConfirm;
     }
 
-    public void match(Match match, List<Match> matches) {
+    public void insertMatch(Match match, List<Match> matches) {
         User developer = match.getDeveloper();
         Project project = match.getProject();
+
         validateCustomerProjectMatch.run(developer, project);
         validateDeveloperProjectMatch.run(match, matches);
     }

@@ -10,20 +10,22 @@ import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 public class CreateMatchDeveloper {
 
     private final MatchRepository matchRepository;
     private final MatchValidateFacade matchValidateFacade;
-    private final Match match;
 
-    public CreateMatchDeveloper(MatchRepository matchRepository, MatchValidateFacade matchValidateFacade, Match match) {
+    public CreateMatchDeveloper(MatchRepository matchRepository, MatchValidateFacade matchValidateFacade) {
         this.matchRepository = matchRepository;
         this.matchValidateFacade = matchValidateFacade;
-        this.match = match;
     }
 
     public Match createMatch(User user, Project project) {
-        List<Match> matches = matchRepository.findAllMatchByUserAndStateBusiness(user, StateBusiness.OPEN);
+
+        List<Match> matches = matchRepository.findAllMatchByDeveloperAndStateBusiness(user, StateBusiness.OPEN);
+
+        Match match = new Match();
 
         match.setDeveloper(user);
         match.setDateCreated(LocalDateTime.now().toLocalDate());
@@ -31,7 +33,7 @@ public class CreateMatchDeveloper {
         match.setConfirmDeveloper(new Confirm(false));
         match.setConfirmCustomer(new Confirm(false));
 
-        matchValidateFacade.match(match, matches);
+        matchValidateFacade.insertMatch(match, matches);
 
         return matchRepository.save(match);
     }

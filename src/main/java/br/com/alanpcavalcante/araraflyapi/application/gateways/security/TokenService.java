@@ -1,6 +1,6 @@
 package br.com.alanpcavalcante.araraflyapi.application.gateways.security;
 
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.UserEntity;
 
 public interface TokenService {
 

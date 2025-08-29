@@ -2,7 +2,7 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.security;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.security.TokenService;
 import br.com.alanpcavalcante.araraflyapi.domain.user.UserRole;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.UserEntity;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -36,7 +36,6 @@ public class TokenServiceImpl implements TokenService {
                     .withClaim("role", roleString.toString())
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
-
 
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Error while generating token", exception);

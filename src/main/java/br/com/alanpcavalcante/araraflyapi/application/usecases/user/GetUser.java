@@ -1,6 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.application.usecases.user;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.exceptions.UserNotFound;
 import br.com.alanpcavalcante.araraflyapi.domain.user.Login;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
@@ -14,7 +15,7 @@ public class GetUser {
     }
 
     public User byLogin(Login login) {
-         return userRepository.getUserByLogin(login).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+         return userRepository.getUserByLogin(login).orElseThrow(() -> new UserNotFound("User not found"));
     }
 
 }

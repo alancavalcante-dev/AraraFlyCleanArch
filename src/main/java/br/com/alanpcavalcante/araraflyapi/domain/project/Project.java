@@ -1,5 +1,6 @@
 package br.com.alanpcavalcante.araraflyapi.domain.project;
 
+import br.com.alanpcavalcante.araraflyapi.domain.exceptions.*;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
 import java.math.BigDecimal;
@@ -38,23 +39,17 @@ public class Project {
         this.idProject = idProject;
     }
 
-    public User getUser() {
-        return customer;
-    }
-
-    public void setUser(User customer) {
-        if (customer.getIsDeveloper()) {
-            throw new IllegalArgumentException("Apenas clientes podem ter projeto!");
-        }
-        this.customer = customer;
-    }
 
     public StateBusiness getStateBusiness() {
         return stateBusiness;
     }
 
-    public void setStateBusiness(StateBusiness stateBusiness) {
-        this.stateBusiness = stateBusiness;
+    public void setStateBusiness(StateBusiness state) {
+        if (StateBusiness.OPEN == state || StateBusiness.DIDNTSTART == state ||
+            StateBusiness.FINISHED == state || StateBusiness.WORKING == state || StateBusiness.CANCELED == state) {
+            this.stateBusiness = state;
+        }
+        throw new StateBusinessInvalid("Invalid state business");
     }
 
 
@@ -63,8 +58,8 @@ public class Project {
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        if (LocalDateTime.now().isAfter(dateCreated)) {
-            throw new IllegalArgumentException("Data criação é maios do que a data atual");
+        if (dateCreated.isAfter(LocalDateTime.now())) {
+            throw new IllegalArgumentException("Data de criação não pode ser maior que a data atual");
         }
         this.dateCreated = dateCreated;
     }
@@ -74,8 +69,8 @@ public class Project {
     }
 
     public void setClosingDate(LocalDate closingDate) {
-        if (closingDate.isAfter(LocalDate.now().minusDays(3))) {
-            throw new IllegalArgumentException("Minimum of 3 days to close the project");
+        if (closingDate.isBefore(LocalDate.now().minusDays(3))) {
+            throw new ClosingDateDaysMin("Minimum of 3 days to close the project");
         }
         this.closingDate = closingDate;
     }
@@ -85,7 +80,11 @@ public class Project {
     }
 
     public void setTypePrice(Price price) {
-        this.typePrice = price.getTypePrice();
+        TypePrice type = price.getTypePrice();
+        if (type == TypePrice.Hour || type == TypePrice.Project || type == TypePrice.Day) {
+            this.typePrice = price.getTypePrice();
+        }
+        throw new TypePriceInvalid("Invalid type price");
     }
 
     public BigDecimal getPrice() {
@@ -93,16 +92,10 @@ public class Project {
     }
 
     public void setPrice(Price price) {
-
         if (price.getPrice().compareTo(new BigDecimal("25.00")) < 0) {
-            throw new IllegalArgumentException("Invalid field, minimum value of R$ 25.00");
+            throw new PriceValueMinInvalid("Invalid field, minimum value of R$ 25.00");
         }
-
-        if (!this.getStateBusiness().equals(StateBusiness.OPEN)) {
-            throw new IllegalArgumentException("Cannot change the value while the project is in production");
-        }
-
-        this.price.setPrice(price.getPrice());
+        this.price = price;
     }
 
 
@@ -127,7 +120,10 @@ public class Project {
     }
 
     public void setDeveloper(User developer) {
-        this.developer = developer;
+        if (developer.getIsDeveloper()) {
+            this.developer = developer;
+        }
+        throw new CustomerCannotProgram("Customer cannot program systems");
     }
 
     public User getCustomer() {
@@ -135,6 +131,9 @@ public class Project {
     }
 
     public void setCustomer(User customer) {
+        if (customer.getIsDeveloper()) {
+            throw new DeveloperCannotHaveProject("Developer cannot have a project");
+        }
         this.customer = customer;
     }
 }

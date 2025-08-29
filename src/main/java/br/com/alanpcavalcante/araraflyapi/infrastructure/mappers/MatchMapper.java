@@ -2,7 +2,9 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 
 import br.com.alanpcavalcante.araraflyapi.domain.match.Confirm;
 import br.com.alanpcavalcante.araraflyapi.domain.match.Match;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.MatchEntity;
+import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.controllers.dto.MatchResponse;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.MatchEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,20 @@ public class MatchMapper {
         entity.setConfirmClient(match.getConfirmCustomer().getConfirm());
         entity.setDateMatch(match.getDateCreated());
         return entity;
+    }
+
+    public MatchResponse domainToResponse(Match match) {
+        Project project = match.getProject();
+        return new MatchResponse(
+                match.getIdMatch().toString(),
+                project.getIdProject().toString(),
+                project.getTitle().getTitle(),
+                project.getDescription().getDescription(),
+                match.getConfirmDeveloper().getConfirm(),
+                match.getConfirmCustomer().getConfirm(),
+                project.getClosingDate(),
+                match.getDateCreated()
+        );
     }
 
 }

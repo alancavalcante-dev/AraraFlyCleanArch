@@ -1,7 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 
 import br.com.alanpcavalcante.araraflyapi.domain.user.Address;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.AddressEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.AddressEntity;
 
 public class AddressMapper {
 

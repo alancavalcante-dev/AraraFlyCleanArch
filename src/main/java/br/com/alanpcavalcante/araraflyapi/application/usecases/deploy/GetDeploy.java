@@ -19,7 +19,7 @@ public class GetDeploy {
             throw new IllegalArgumentException("Esse projeto não está em produção");
         }
 
-        if (!(userLogged.getId().equals(project.getUser().getId()) || userLogged.getId().equals(project.getDeveloper().getId()))) {
+        if (!(userLogged.getId().equals(project.getCustomer().getId()) || userLogged.getId().equals(project.getDeveloper().getId()))) {
             throw new IllegalArgumentException("Usuário não pertence ao projeto");
         }
 

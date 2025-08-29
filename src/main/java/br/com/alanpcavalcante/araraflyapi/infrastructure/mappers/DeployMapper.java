@@ -3,9 +3,9 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 import br.com.alanpcavalcante.araraflyapi.domain.deploy.Deploy;
 import br.com.alanpcavalcante.araraflyapi.domain.deploy.Environment;
 import br.com.alanpcavalcante.araraflyapi.domain.deploy.PortExpose;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.DeployEntity;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.EnvironmentEntity;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.PortExposeEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.DeployEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.EnvironmentEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.PortExposeEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

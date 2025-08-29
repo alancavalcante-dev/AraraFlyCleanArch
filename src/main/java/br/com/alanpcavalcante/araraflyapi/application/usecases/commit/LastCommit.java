@@ -17,7 +17,7 @@ public class LastCommit {
 
     public Object commit(User user, Project project) {
 
-        if (!(Objects.equals(user.getId(), project.getUser().getId()) || Objects.equals(user.getId(), project.getDeveloper().getId()))) {
+        if (!(Objects.equals(user.getId(), project.getCustomer().getId()) || Objects.equals(user.getId(), project.getDeveloper().getId()))) {
             throw new IllegalArgumentException("Não tem acesso à esse projeto");
         }
 

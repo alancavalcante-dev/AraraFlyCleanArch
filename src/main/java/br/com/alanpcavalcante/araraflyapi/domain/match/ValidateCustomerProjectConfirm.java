@@ -6,11 +6,11 @@ public class ValidateCustomerProjectConfirm {
     }
 
     public Match run(Match match) {
-        if (match.getProject().getUser().getIsDeveloper()) {
+        if (match.getProject().getDeveloper().getIsDeveloper()) {
             throw new IllegalArgumentException("Apenas o cliente pode este confirmar Match");
         }
 
-        if (match.getProject().getUser().getId() == match.getDeveloper().getId()) {
+        if (match.getProject().getDeveloper().getId() == match.getDeveloper().getId()) {
             throw new IllegalArgumentException("Apenas o cliente do match pode confirmar o match");
         }
         match.getConfirmCustomer().setConfirm(true);

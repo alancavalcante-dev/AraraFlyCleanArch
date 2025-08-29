@@ -14,7 +14,7 @@ public class ValidateCustomerVotedOnOwnMatch {
             throw new IllegalArgumentException("So pode dar match quem for desenvolvedor");
         }
 
-        if (developer.getLogin() == project.getUser().getLogin()) {
+        if (developer.getLogin() == project.getCustomer().getLogin()) {
             throw new IllegalArgumentException("O cliente não pode dar match no proprio projeto");
         }
 

@@ -1,7 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 
 import br.com.alanpcavalcante.araraflyapi.domain.pointmarking.PointMarking;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.PointMarkingEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.PointMarkingEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PointMarkingMapper {

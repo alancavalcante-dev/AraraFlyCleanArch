@@ -1,6 +1,8 @@
 package br.com.alanpcavalcante.araraflyapi.application.usecases.project;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.project.ProjectRepository;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.exceptions.ProjectNotStating;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.exceptions.UserDoesNotBelong;
 import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
 import br.com.alanpcavalcante.araraflyapi.domain.project.StateBusiness;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
@@ -17,11 +19,11 @@ public class DeleteProjectCustomer {
 
     public void delete(UUID idProject, User customer) {
         Project project = projectRepository.getProjectByIdProjectAndCustomer(idProject, customer)
-                .orElseThrow(() -> new RuntimeException("Projeto não pertence ao cliente"));
+                .orElseThrow(() -> new UserDoesNotBelong("User does not belong"));
 
         StateBusiness state = project.getStateBusiness();
         if (state == StateBusiness.WORKING || state == StateBusiness.DIDNTSTART) {
-            throw new RuntimeException("So pode deletar quando o projeto nao foi iniciado.");
+            throw new ProjectNotStating("You can only delete when the project has not been started");
         }
        projectRepository.delete(project);
     }

@@ -1,7 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 
 import br.com.alanpcavalcante.araraflyapi.domain.portfolio.Portfolio;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.PortfolioDeveloperEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.PortfolioDeveloperEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PortfolioMapper {

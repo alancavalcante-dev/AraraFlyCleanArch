@@ -5,7 +5,7 @@ import br.com.alanpcavalcante.araraflyapi.domain.user.Login;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.mappers.ProfileMapper;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.mappers.UserMapper;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

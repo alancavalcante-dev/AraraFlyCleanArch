@@ -3,8 +3,7 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 import br.com.alanpcavalcante.araraflyapi.domain.profile.Profile;
 import br.com.alanpcavalcante.araraflyapi.domain.profile.ProfileBuild;
 import br.com.alanpcavalcante.araraflyapi.domain.user.*;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.ProfileEntity;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.model.UserEntity;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.ProfileEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

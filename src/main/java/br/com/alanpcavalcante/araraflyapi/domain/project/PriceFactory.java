@@ -1,5 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.domain.project;
 
+import br.com.alanpcavalcante.araraflyapi.domain.exceptions.TypePriceInvalid;
+
 import java.math.BigDecimal;
 
 public class PriceFactory {
@@ -17,7 +19,7 @@ public class PriceFactory {
             return new PriceProject(amount, typePrice);
         }
 
-        throw new IllegalArgumentException("Type price invalid");
+        throw new TypePriceInvalid("Type price invalid");
     }
 
 }

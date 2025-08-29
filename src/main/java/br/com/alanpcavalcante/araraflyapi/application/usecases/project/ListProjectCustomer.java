@@ -15,7 +15,6 @@ public class ListProjectCustomer {
         this.projectRepository = projectRepository;
     }
 
-
     public List<Project> listStateBusiness(User user, StateBusiness state) {
         return projectRepository.getProjectsByCustomerAndStateBusiness(user, state);
     }

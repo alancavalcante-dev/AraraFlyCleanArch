@@ -2,9 +2,7 @@ package br.com.alanpcavalcante.araraflyapi.application.usecases.project;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.project.ProjectRepository;
 import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
-import br.com.alanpcavalcante.araraflyapi.domain.project.StateBusiness;
 
-import java.util.List;
 
 public class ListProjectOpenSearch {
 
@@ -14,8 +12,8 @@ public class ListProjectOpenSearch {
         this.projectRepository = projectRepository;
     }
 
-    public List<Project> list(String search) {
-        return projectRepository.listProjectsOpenBySearch(StateBusiness.OPEN, search);
+    public CustomPage<Project> listProjects(Object specification, Object page) {
+        return projectRepository.listProjectsOpenBySpec(specification, page);
     }
 
 }
