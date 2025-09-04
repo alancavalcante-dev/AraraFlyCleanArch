@@ -58,5 +58,8 @@ public class ProjectEntity {
     @JoinColumn(name = "id_developer")
     private UserEntity developer;
 
+    @OneToOne(mappedBy = "project")
+    private DeployEntity deploy;
+
 }
 

@@ -1,4 +1,4 @@
-package br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.project;
+package br.com.alanpcavalcante.araraflyapi.infrastructure.controllers.specification;
 
 import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.ProjectEntity;
 import org.springframework.data.jpa.domain.Specification;

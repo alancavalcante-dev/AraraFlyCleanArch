@@ -52,7 +52,6 @@ public class ProjectMapper {
         entity.setTitle(domain.getTitle() != null ? domain.getTitle().getTitle() : null);
         entity.setDescription(domain.getDescription() != null ? domain.getDescription().getDescription() : null);
 
-
         entity.setPrice(domain.getPrice());
         entity.setTypePrice(domain.getTypePrice());
 
@@ -65,7 +64,6 @@ public class ProjectMapper {
         if (domain.getDeveloper() != null) {
             entity.setDeveloper(userMapper.domainToEntity(domain.getDeveloper()));
         }
-
         return entity;
     }
 

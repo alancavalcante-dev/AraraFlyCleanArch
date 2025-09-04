@@ -1,6 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.controllers;
 
 
+import br.com.alanpcavalcante.araraflyapi.application.usecases.exceptions.ProjectNotFound;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.ConfirmMatch;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.CreateMatchDeveloper;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.DeleteMatchDeveloper;
@@ -50,13 +51,7 @@ public class MatchDeveloperController {
 
     @PostMapping
     public ResponseEntity<MatchResponse> createMatch(@RequestParam String idProject) {
-        Match matchCreated = createMatchDeveloper
-                .createMatch(
-                    logged.load(),
-                    getProjectDeveloper.get(logged.load(), UUID.fromString(idProject))
-                    .orElseThrow(() -> new RuntimeException("Nao encontrado")
-                ));
-
+        Match matchCreated = createMatchDeveloper.createMatch(logged.load(), UUID.fromString(idProject));
         return ResponseEntity.status(HttpStatus.CREATED).body(matchMapper.domainToResponse(matchCreated));
     }
 

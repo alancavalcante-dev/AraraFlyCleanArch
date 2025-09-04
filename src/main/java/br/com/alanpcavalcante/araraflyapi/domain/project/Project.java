@@ -49,7 +49,9 @@ public class Project {
             StateBusiness.FINISHED == state || StateBusiness.WORKING == state || StateBusiness.CANCELED == state) {
             this.stateBusiness = state;
         }
-        throw new StateBusinessInvalid("Invalid state business");
+        else {
+            throw new StateBusinessInvalid("Invalid state business");
+        }
     }
 
 
@@ -69,7 +71,8 @@ public class Project {
     }
 
     public void setClosingDate(LocalDate closingDate) {
-        if (closingDate.isBefore(LocalDate.now().minusDays(3))) {
+        LocalDate minimumClosingDate = LocalDate.now().plusDays(3);
+        if (closingDate.isBefore(minimumClosingDate)) {
             throw new ClosingDateDaysMin("Minimum of 3 days to close the project");
         }
         this.closingDate = closingDate;
@@ -81,11 +84,13 @@ public class Project {
 
     public void setTypePrice(Price price) {
         TypePrice type = price.getTypePrice();
-        if (type == TypePrice.Hour || type == TypePrice.Project || type == TypePrice.Day) {
+        if (type.equals(TypePrice.Hour) || type.equals(TypePrice.Project) || type.equals(TypePrice.Day)) {
             this.typePrice = price.getTypePrice();
         }
-        throw new TypePriceInvalid("Invalid type price");
-    }
+        else {
+            throw new TypePriceInvalid("Invalid type price");
+        }
+}
 
     public BigDecimal getPrice() {
         return price.getPrice();
@@ -120,10 +125,10 @@ public class Project {
     }
 
     public void setDeveloper(User developer) {
-        if (developer.getIsDeveloper()) {
-            this.developer = developer;
+        if (!developer.getIsDeveloper()) {
+            throw new CustomerCannotProgram("Customer cannot program systems");
         }
-        throw new CustomerCannotProgram("Customer cannot program systems");
+        this.developer = developer;
     }
 
     public User getCustomer() {

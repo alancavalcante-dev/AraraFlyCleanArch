@@ -13,13 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository
+@Component
 public class ProjectRepositoryImpl implements ProjectRepository {
 
     @Autowired
@@ -69,6 +70,11 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     public void delete(Project project) {
         ProjectEntity entity = projectMapper.domainToEntity(project);
         projectRepositoryJpa.delete(entity);
+    }
+
+    @Override
+    public Optional<Project> getProjectById(UUID id) {
+        return projectRepositoryJpa.findById(id).map(projectMapper::entityToDomain);
     }
 
     @Override

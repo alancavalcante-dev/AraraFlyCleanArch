@@ -36,9 +36,10 @@ public class MatchValidateFacade {
         validateDeveloperProjectMatch.run(match, matches);
     }
 
-    public Match confirm(Match match, boolean isDeveloper) {
-        if (isDeveloper) {
+    public Match confirm(Match match, User user) {
+        if (user.getIsDeveloper()) {
             return validateDeveloperProjectConfirm.run(match);
+
         } else return validateCustomerProjectConfirm.run(match);
 
     }

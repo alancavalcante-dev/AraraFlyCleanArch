@@ -3,6 +3,7 @@ package br.com.alanpcavalcante.araraflyapi.application.usecases.match;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.match.MatchRepository;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.UpdateProjectToContainerProduction;
 import br.com.alanpcavalcante.araraflyapi.domain.match.Match;
+import br.com.alanpcavalcante.araraflyapi.domain.project.StateBusiness;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
 import java.util.UUID;
@@ -22,13 +23,22 @@ public class ConfirmMatch {
     }
 
     public Match confirmMatch(User user, UUID idMatch) {
-        Match match = matchRepository.findMatchById(idMatch).orElseThrow(() -> new RuntimeException("Match não encontrado"));
+        Match match = matchRepository.findMatchById(idMatch).orElseThrow(() -> new RuntimeException("Match not found"));
 
-        Match matchUpdate = matchValidateFacade.confirm(match, user.getIsDeveloper());
+        if (user.getId() != match.getProject().getCustomer().getId() && user.getId() != match.getDeveloper().getId()) {
+            throw new RuntimeException("denied!");
+        }
+
+        if (match.getProject().getStateBusiness() != StateBusiness.OPEN) {
+            throw new RuntimeException("project already start");
+        }
+
+        Match matchUpdate = matchValidateFacade.confirm(match, user);
 
         if (matchUpdate.getConfirmCustomer().getConfirm() && matchUpdate.getConfirmDeveloper().getConfirm()) {
-            updateProjectToContainerProduction.updateProject(match.getProject(), matchUpdate.getDeveloper());
+            updateProjectToContainerProduction.updateProject(match.getProject(), match.getDeveloper());
         }
+
         return matchRepository.save(matchUpdate);
     }
 }

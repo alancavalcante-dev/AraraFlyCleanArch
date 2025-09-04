@@ -3,21 +3,18 @@ package br.com.alanpcavalcante.araraflyapi.application.usecases.project;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.project.ProjectRepository;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.exceptions.ProjectNotFound;
 import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
-import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
-import java.util.Optional;
 import java.util.UUID;
 
-
-public class GetProjectDeveloper {
+public class GetProjectById {
 
     private final ProjectRepository projectRepository;
 
-    public GetProjectDeveloper(ProjectRepository projectRepository) {
+    public GetProjectById(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
     }
 
-    public Optional<Project> get(User user, UUID idProject) {
-        return projectRepository.getProjectByIdProjectAndDeveloper(idProject, user);
+    public Project get(UUID id) {
+        return projectRepository.getProjectById(id).orElseThrow(() -> new ProjectNotFound("Project not found"));
     }
 }

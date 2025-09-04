@@ -50,7 +50,7 @@ public class DeployEntity {
     private Boolean isUp;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_project", nullable = false)
     private ProjectEntity project;
 

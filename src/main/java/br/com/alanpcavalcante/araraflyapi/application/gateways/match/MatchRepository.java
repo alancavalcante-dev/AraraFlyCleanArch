@@ -12,6 +12,7 @@ import java.util.UUID;
 public interface MatchRepository {
 
     Optional<Match> findMatchById(UUID idMatch);
+    Optional<Match> findMatchByCustomerOrDeveloper(UUID uuid);
     List<Match> findAllMatchByDeveloperAndStateBusiness(User developer, StateBusiness stateBusiness);
     List<Match> findAllMatchByCustomerAndStateBusiness(User customer, StateBusiness stateBusiness);
     Match save(Match match);

@@ -16,9 +16,6 @@ public class ProfileMapper {
     @Autowired
     private AddressMapper addressMapper;
 
-    @Autowired
-    private UserMapper userMapper;
-
 
     public Profile entityToDomain(ProfileEntity entity) {
         ProfileBuild build = profileBuild.createProfile(
@@ -37,6 +34,7 @@ public class ProfileMapper {
         profile.setIdProfile(entity.getIdProfile());
         return profile;
     }
+
 
     public ProfileEntity domainToEntity(Profile profile) {
         ProfileEntity profileEntity = new ProfileEntity();

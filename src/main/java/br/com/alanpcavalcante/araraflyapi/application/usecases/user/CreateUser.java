@@ -5,6 +5,7 @@ import br.com.alanpcavalcante.araraflyapi.application.gateways.security.EncryptP
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.exceptions.CpfOrEmailExists;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.exceptions.UsernameExists;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.portfolio.CreatePortfolioDeveloper;
 import br.com.alanpcavalcante.araraflyapi.domain.profile.Profile;
 import br.com.alanpcavalcante.araraflyapi.domain.user.*;
 
@@ -15,13 +16,16 @@ public class CreateUser {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
     private final EncryptPassword encryptPassword;
+    private final CreatePortfolioDeveloper createPortfolioDeveloper;
 
 
-    public CreateUser(UserRepository userRepository, ProfileRepository profileRepository, EncryptPassword encryptPassword) {
+    public CreateUser(UserRepository userRepository, ProfileRepository profileRepository, EncryptPassword encryptPassword, CreatePortfolioDeveloper createPortfolioDeveloper) {
         this.userRepository = userRepository;
         this.profileRepository = profileRepository;
         this.encryptPassword = encryptPassword;
+        this.createPortfolioDeveloper = createPortfolioDeveloper;
     }
+
 
     public User create(User user) throws Exception {
 
@@ -38,8 +42,14 @@ public class CreateUser {
 
         if (user.getIsDeveloper()) {
             user.setRole(UserRole.DEVELOPER);
-        } else user.setRole(UserRole.CUSTOMER);
-        return userRepository.save(user);
+            User saved = userRepository.save(user);
+            createPortfolioDeveloper.create(saved);
+            return saved;
+        }
+        else {
+            user.setRole(UserRole.CUSTOMER);
+            return userRepository.save(user);
+        }
     }
 
 }

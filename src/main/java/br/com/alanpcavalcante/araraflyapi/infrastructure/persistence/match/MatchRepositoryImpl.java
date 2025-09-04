@@ -30,6 +30,11 @@ public class MatchRepositoryImpl implements MatchRepository {
     }
 
     @Override
+    public Optional<Match> findMatchByCustomerOrDeveloper(UUID uuid) {
+        return matchRepositoryJpa.getMatchByCustomerOrDeveloper(uuid).map(matchMapper::entityToDomain);
+    }
+
+    @Override
     public List<Match> findAllMatchByDeveloperAndStateBusiness(User developer, StateBusiness stateBusiness) {
         return matchRepositoryJpa.getAllMatchByDeveloperAndStateBusiness(
                 developer.getId(),

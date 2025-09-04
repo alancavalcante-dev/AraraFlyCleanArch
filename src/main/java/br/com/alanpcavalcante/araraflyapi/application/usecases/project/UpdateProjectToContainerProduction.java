@@ -25,9 +25,10 @@ public class UpdateProjectToContainerProduction {
         project.setStateBusiness(StateBusiness.DIDNTSTART);
         project.setDeveloper(developer);
 
-        Email customerEmail = project.getDeveloper().getProfile().getEmail();
+        Email customerEmail = project.getCustomer().getProfile().getEmail();
         Email developerEmail = developer.getProfile().getEmail();
-        TextField textField = new TextField("Projeto movido para Produção: Container - " + project.getTitle());
+
+        TextField textField = new TextField("Projeto movido para Produção: Container - " + project.getTitle().getTitle());
         TextField bodyField = new TextField("Container criado, clique no link para ser redirecionado para os detalhes do projeto: (link)");
 
         projectRepository.save(project);

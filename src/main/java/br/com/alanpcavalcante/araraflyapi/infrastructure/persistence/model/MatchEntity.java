@@ -18,10 +18,10 @@ public class MatchEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id_project_business")
+    @Column(name = "id_match")
     private UUID idMatch;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_project", nullable = false)
     private ProjectEntity project;
 

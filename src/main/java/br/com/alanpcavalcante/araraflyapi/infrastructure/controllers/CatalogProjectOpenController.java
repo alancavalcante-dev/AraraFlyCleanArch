@@ -4,13 +4,12 @@ import br.com.alanpcavalcante.araraflyapi.application.usecases.project.CustomPag
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.ListProjectOpenSearch;
 import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.controllers.dto.ProjectResponse;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.controllers.specification.CatalogProjectSpecification;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.mappers.ProjectMapper;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.ProjectEntity;
-import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.project.CatalogProjectSpecification;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.query.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
@@ -94,5 +93,7 @@ public class CatalogProjectOpenController {
         return ResponseEntity.ok(responsePage);
 
     }
+
+
 
 }

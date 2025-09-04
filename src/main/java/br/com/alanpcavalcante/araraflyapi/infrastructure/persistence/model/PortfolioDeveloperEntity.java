@@ -3,6 +3,7 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.nio.file.Path;
 import java.util.UUID;
 
 @Entity
@@ -15,17 +16,28 @@ public class PortfolioDeveloperEntity {
     @Column(name = "id_portfolio")
     private UUID idPortfolio;
 
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private UserEntity developer;
+
     @Column(nullable = false, length = 100)
     private String presentation;
 
-    @Column(nullable = false, length = 180)
+    @Column(length = 180)
     private String resume;
 
-    @OneToOne
-    @JoinColumn(name = "id_user")
-    private UserEntity userDeveloper;
+    @Column(length = 300)
+    private String description;
 
-    @OneToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "id_profile")
-    private ProfileEntity profileDeveloper;
+    @Column(name = "picture_banner_url")
+    private String pictureBanner;
+
+    @Column(name = "is_portfolio_public")
+    private Boolean isPortfolioPublic;
+
+    @Column(name = "is_average_review_public")
+    private Boolean isAverageReviewPublic;
+
+    @Column(name = "is_feedback_public")
+    private Boolean isFeedbackPublic;
 }

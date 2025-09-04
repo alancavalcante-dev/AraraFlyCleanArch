@@ -4,12 +4,15 @@ import br.com.alanpcavalcante.araraflyapi.application.gateways.deploy.DeployRepo
 import br.com.alanpcavalcante.araraflyapi.application.gateways.deploy.FileDeployment;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.match.MatchRepository;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.notification.Notification;
+import br.com.alanpcavalcante.araraflyapi.application.gateways.portfolio.PortfolioRepository;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.profile.ProfileRepository;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.project.ProjectRepository;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.security.EncryptPassword;
 import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserRepository;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.deploy.CreateDeploy;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.*;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.portfolio.CreatePortfolioDeveloper;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.portfolio.GetPortfolioPublicById;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.*;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUser;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.GetUser;
@@ -41,6 +44,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 public class BeanConfig {
 
+    // Portfolio Developer
+
+    @Bean
+    public GetPortfolioPublicById getPortfolioPublicById(PortfolioRepository portfolioRepository) {
+        return new GetPortfolioPublicById(portfolioRepository);
+    }
+
+    @Bean
+    public CreatePortfolioDeveloper createPortfolioDeveloper(PortfolioRepository portfolioRepository) {
+        return new CreatePortfolioDeveloper(portfolioRepository);
+    }
+
+    // End
+
     // Match
 
     @Bean
@@ -68,8 +85,8 @@ public class BeanConfig {
     }
 
     @Bean
-    public CreateMatchDeveloper createMatchDeveloper(MatchRepository matchRepository, MatchValidateFacade matchValidateFacade) {
-        return new CreateMatchDeveloper(matchRepository, matchValidateFacade);
+    public CreateMatchDeveloper createMatchDeveloper(MatchRepository matchRepository, MatchValidateFacade matchValidateFacade, GetProjectById getProjectById) {
+        return new CreateMatchDeveloper(matchRepository, matchValidateFacade, getProjectById);
     }
 
     @Bean
@@ -93,6 +110,11 @@ public class BeanConfig {
 
 
     // Projects
+
+    @Bean
+    public GetProjectById getProjectById(ProjectRepository projectRepository) {
+        return new GetProjectById(projectRepository);
+    }
 
     @Bean
     public ListProjectOpenSearch listProjectOpenSearch(ProjectRepository projectRepository) {
@@ -206,8 +228,8 @@ public class BeanConfig {
     }
 
     @Bean
-    public ProfileBuild profileBuild(Profile profile, Address address) {
-        return new ProfileBuild(profile, address);
+    public ProfileBuild profileBuild() {
+        return new ProfileBuild();
     }
 
     @Bean
@@ -216,8 +238,8 @@ public class BeanConfig {
     }
 
     @Bean
-    public CreateUser createUser(UserRepository userRepository, ProfileRepository profileRepository, EncryptPassword encryptPassword) {
-        return new CreateUser(userRepository, profileRepository, encryptPassword);
+    public CreateUser createUser(UserRepository userRepository, ProfileRepository profileRepository, EncryptPassword encryptPassword, CreatePortfolioDeveloper createPortfolioDeveloper) {
+        return new CreateUser(userRepository, profileRepository, encryptPassword, createPortfolioDeveloper);
     }
 
     @Bean
