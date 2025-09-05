@@ -31,9 +31,9 @@ public class UpdateProjectToContainerProduction {
         TextField textField = new TextField("Projeto movido para Produção: Container - " + project.getTitle().getTitle());
         TextField bodyField = new TextField("Container criado, clique no link para ser redirecionado para os detalhes do projeto: (link)");
 
-        projectRepository.save(project);
+        Project projectSave = projectRepository.save(project);
 
-        createDeploy.create(project);
+        createDeploy.create(projectSave);
 
         notification.send(customerEmail, textField, bodyField);
         notification.send(developerEmail, textField, bodyField);

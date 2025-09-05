@@ -29,7 +29,9 @@ public class Deployment {
             return true;
         }
 
-        String file = generatorBuilderDeployment.generate(deploy, "alan.cavalcante", "batataquente");
+        String username = deploy.getProject().getDeveloper().getLogin().getLogin();
+
+        String file = generatorBuilderDeployment.generate(deploy, username, "batataquente");
         Path workspaceFileSaved = workspaceFile.upSaveBuilderFileWorkspace(file, deploy.getProject().getIdProject());
         fileDeployment.up(workspaceFileSaved);
         workspaceFile.dropBuilderFileWorkspace(workspaceFileSaved);

@@ -220,8 +220,8 @@ public class BeanConfig {
     }
 
     @Bean
-    public CreateDeploy createDeploy(Deploy deploy, DeployRepository deployRepository) {
-        return new CreateDeploy(deploy, deployRepository);
+    public CreateDeploy createDeploy(Deploy deploy, DeployRepository deployRepository, Notification notification) {
+        return new CreateDeploy(deploy, deployRepository, notification);
     }
 
     @Bean

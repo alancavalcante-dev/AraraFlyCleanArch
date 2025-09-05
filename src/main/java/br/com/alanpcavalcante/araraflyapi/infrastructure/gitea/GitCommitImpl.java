@@ -5,6 +5,7 @@ import br.com.alanpcavalcante.araraflyapi.application.usecases.commit.ResponseGe
 import br.com.alanpcavalcante.araraflyapi.application.usecases.commit.ResponsePostCommitData;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
@@ -19,19 +20,23 @@ import java.util.stream.Collectors;
 
 public class GitCommitImpl implements GitCommit {
 
-
     private WebClient webClient;
     private ResponseGetCommits responseGetCommits;
 
+    @Value("${gitea.token}")
+    private String giteaToken;
+
+    @Value("${gitea.url}")
+    private String giteaUrl;
+
     @PostConstruct
     public void init() {
-        String giteaToken = "aojsdads...";
-        String urlGitea = "https...";
         this.webClient = WebClient.builder()
-                .baseUrl(urlGitea + "/api/v1")
+                .baseUrl(giteaUrl + "/api/v1")
                 .defaultHeader("Authorization", "token " + giteaToken)
                 .build();
     }
+
 
     @Override
     public Mono<ResponsePostCommitData> commitData(String repoOwner, String repoName, String filePath, String content, String commitMessage, String branch) {

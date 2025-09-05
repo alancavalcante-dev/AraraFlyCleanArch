@@ -33,3 +33,20 @@ neuralnetwork:
   host: ${NEURAL_NETWORK_HOST}
   model: ${NEURAL_NETWORK_MODEL}
   token: ${NEURAL_NETWORK_TOKEN}
+
+management:
+  server:
+    port: 9090
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+docker:
+  host: ${DOCKER_HOST}
+  tlsVerify: false
+
+gitea:
+  admin: ${ADMIN_USERNAME}
+  token: ${GITEA_TOKEN}
+  url: ${URL_GITEA_API}
