@@ -1,7 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.project;
 
 import br.com.alanpcavalcante.araraflyapi.application.gateways.project.ProjectRepository;
-import br.com.alanpcavalcante.araraflyapi.application.usecases.project.CustomPage;
+import br.com.alanpcavalcante.araraflyapi.domain.CustomPage;
 import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
 import br.com.alanpcavalcante.araraflyapi.domain.project.StateBusiness;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
@@ -14,7 +14,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;

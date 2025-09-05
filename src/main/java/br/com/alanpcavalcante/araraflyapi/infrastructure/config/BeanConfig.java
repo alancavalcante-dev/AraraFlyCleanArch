@@ -12,6 +12,7 @@ import br.com.alanpcavalcante.araraflyapi.application.gateways.user.UserReposito
 import br.com.alanpcavalcante.araraflyapi.application.usecases.deploy.CreateDeploy;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.match.*;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.portfolio.CreatePortfolioDeveloper;
+import br.com.alanpcavalcante.araraflyapi.application.usecases.portfolio.FindAllDeveloper;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.portfolio.GetPortfolioPublicById;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.*;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.user.CreateUser;
@@ -47,6 +48,11 @@ public class BeanConfig {
     // Portfolio Developer
 
     @Bean
+    public FindAllDeveloper findAllDeveloper(PortfolioRepository portfolioRepository) {
+        return new FindAllDeveloper(portfolioRepository);
+    }
+
+    @Bean
     public GetPortfolioPublicById getPortfolioPublicById(PortfolioRepository portfolioRepository) {
         return new GetPortfolioPublicById(portfolioRepository);
     }
@@ -56,7 +62,8 @@ public class BeanConfig {
         return new CreatePortfolioDeveloper(portfolioRepository);
     }
 
-    // End
+    // End Beans Portfolio
+
 
     // Match
 
@@ -110,6 +117,11 @@ public class BeanConfig {
 
 
     // Projects
+
+    @Bean
+    public GetProjectByIdOpen getProjectByIdOpen(ProjectRepository projectRepository) {
+        return new GetProjectByIdOpen(projectRepository);
+    }
 
     @Bean
     public GetProjectById getProjectById(ProjectRepository projectRepository) {

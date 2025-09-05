@@ -1,7 +1,5 @@
-package br.com.alanpcavalcante.araraflyapi.application.usecases.project;
+package br.com.alanpcavalcante.araraflyapi.domain;
 
-
-import org.springframework.data.domain.Sort;
 
 import java.util.List;
 

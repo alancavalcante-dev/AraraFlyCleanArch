@@ -1,9 +1,11 @@
 package br.com.alanpcavalcante.araraflyapi.domain.portfolio;
 
+import br.com.alanpcavalcante.araraflyapi.domain.technology.Technology;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.UUID;
 
 public class Portfolio {
@@ -17,7 +19,7 @@ public class Portfolio {
     private Boolean isPortfolioPublic;
     private Boolean isAverageReviewPublic;
     private Boolean isFeedbackPublic;
-
+    private List<Technology> technologies;
 
     public User getDeveloper() {
         return developer;
@@ -90,5 +92,13 @@ public class Portfolio {
 
     public void setIsFeedbackPublic(Boolean feedbackPublic) {
         isFeedbackPublic = feedbackPublic;
+    }
+
+    public List<Technology> getTechnologies() {
+        return technologies;
+    }
+
+    public void setTechnologies(List<Technology> technologies) {
+        this.technologies = technologies;
     }
 }

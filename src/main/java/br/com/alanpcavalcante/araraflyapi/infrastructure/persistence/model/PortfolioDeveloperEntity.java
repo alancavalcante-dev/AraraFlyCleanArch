@@ -3,7 +3,8 @@ package br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.nio.file.Path;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -40,4 +41,12 @@ public class PortfolioDeveloperEntity {
 
     @Column(name = "is_feedback_public")
     private Boolean isFeedbackPublic;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "tbl_portfolio_technologies", // Nova tabela de junção
+            joinColumns = @JoinColumn(name = "id_portfolio"),
+            inverseJoinColumns = @JoinColumn(name = "id_technology")
+    )
+    private Set<TechnologyEntity> technologies = new HashSet<>();
 }

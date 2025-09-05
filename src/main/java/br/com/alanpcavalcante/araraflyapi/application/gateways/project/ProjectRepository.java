@@ -1,11 +1,10 @@
 package br.com.alanpcavalcante.araraflyapi.application.gateways.project;
 
-import br.com.alanpcavalcante.araraflyapi.application.usecases.project.CustomPage;
+import br.com.alanpcavalcante.araraflyapi.domain.CustomPage;
 import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
 import br.com.alanpcavalcante.araraflyapi.domain.project.StateBusiness;
 import br.com.alanpcavalcante.araraflyapi.domain.user.User;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

@@ -27,7 +27,7 @@ public class CatalogPortfolioDeveloperController {
 
     @GetMapping("developers/{idPortfolio}")
     public ResponseEntity<PortfolioDeveloperResponse> portfolioByIdPublic(@PathVariable("idPortfolio") String id) {
-        PortfolioDeveloperResponse response = portfolioMapper.domainToResponse(getPortfolioPublicById.get(UUID.fromString(id)));
+        PortfolioDeveloperResponse response = portfolioMapper.domainToResponsePortfolio(getPortfolioPublicById.get(UUID.fromString(id)));
         return ResponseEntity.ok(response);
     }
 }

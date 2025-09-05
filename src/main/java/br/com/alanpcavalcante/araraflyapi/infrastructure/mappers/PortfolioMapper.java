@@ -1,6 +1,7 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.mappers;
 
 import br.com.alanpcavalcante.araraflyapi.domain.portfolio.Portfolio;
+import br.com.alanpcavalcante.araraflyapi.infrastructure.controllers.dto.CatalogDeveloperResponse;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.controllers.dto.PortfolioDeveloperResponse;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.persistence.model.PortfolioDeveloperEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class PortfolioMapper {
         return portfolio;
     }
 
-    public PortfolioDeveloperResponse domainToResponse(Portfolio portfolio) {
+    public PortfolioDeveloperResponse domainToResponsePortfolio(Portfolio portfolio) {
         return new PortfolioDeveloperResponse(
             portfolio.getDeveloper().getProfile().getName().getName(),
             portfolio.getDeveloper().getProfile().getEmail().getEmail(),
@@ -54,6 +55,15 @@ public class PortfolioMapper {
             portfolio.getResume(),
             portfolio.getDescription(),
             portfolio.getPictureBanner().toString()
+        );
+    }
+
+    public CatalogDeveloperResponse domainToCatalogDeveloperResponse(Portfolio portfolio) {
+        return new CatalogDeveloperResponse(
+                portfolio.getIdPortfolio(),
+                portfolio.getDeveloper().getProfile().getName().getName(),
+                portfolio.getDeveloper().getProfile().getPicture().toString(),
+                portfolio.getTechnologies()
         );
     }
 }

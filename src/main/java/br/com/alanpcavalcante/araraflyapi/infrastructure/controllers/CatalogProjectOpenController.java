@@ -1,6 +1,6 @@
 package br.com.alanpcavalcante.araraflyapi.infrastructure.controllers;
 
-import br.com.alanpcavalcante.araraflyapi.application.usecases.project.CustomPage;
+import br.com.alanpcavalcante.araraflyapi.domain.CustomPage;
 import br.com.alanpcavalcante.araraflyapi.application.usecases.project.ListProjectOpenSearch;
 import br.com.alanpcavalcante.araraflyapi.domain.project.Project;
 import br.com.alanpcavalcante.araraflyapi.infrastructure.controllers.dto.ProjectResponse;
